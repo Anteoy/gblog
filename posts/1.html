@@ -1,126 +1,64 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <title>Page 1 - ant.eoy</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="author" content="anteoy">
     <meta name="keywords" content="golang,static,site,generator"/>
     <meta name="description" content="a Simple Static Site Generator"/>
-    <link href="/css/pure-min.css" type="text/css" rel="stylesheet" media="all">
-    <link href="/css/blog.css" type="text/css" rel="stylesheet" media="all">
-    <link href="/css/railscasts.css" type="text/css" rel="stylesheet" media="all"/>
+    <link rel="stylesheet" href="/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="/css/prism.css"/>
+    <link rel="stylesheet" href="/css/style.css"/>
 </head>
 <body class="post-list" data-perma="post-page-1">
-<div class="pure-g-r" id="layout">
-    <div class="sidebar pure-u">
-    <header class="header">
-        <hgroup>
-            <h1 class="brand-title">
-                <a href="/" class="brand-title">ant.eoy</a>
-            </h1>
-            <h2 class="brand-tagline">Just For Writing</h2>
-        </hgroup>
-        <nav class="nav">
-            <ul class="nav-list">
-                <li class="">
-                    <a href="/">Home</a>
-                </li>
-                <li class="">
-                    <a href="/archive">Archive</a>
-                </li>
-                <li class="">
-                    <a href="/about">About</a>
-                </li>
-                <li class="">
-                    <a href="http://pugo.io" target="_blank" >Source</a>
-                </li>
-            </ul>
-        </nav>
-    </header>
-</div>
-    <div class="pure-u-1">
-        <div class="content">
-            <div class="page-header">
-                <h1>All Posts</h1>
-            </div>
-            
-            <div class="post">
-                <h3 class="post-header"><a href="/2016/12/27/git-branch.html">git branch</a></h3>
-                <div class="post-meta">
-                    <small>2016-12-27</small>
-                </div>
-                <div class="post-description"><h3 id="从git拉取指定分支">从git拉取指定分支</h3>
+<header id="header">
+    <div class="container">
+        <div class="header clearfix">
+            <nav id="site-nav">
+                <ul class="nav nav-inverse nav-pills pull-right">
+                    <li role="presentation" class="">
+                        <a href="/" >Home
+                        </a>
+                    </li>
+                    <li role="presentation" class="">
+                        <a href="/archive" >Archive
+                        </a>
+                    </li>
+                    <li role="presentation" class="">
+                        <a href="/about" >About
+                        </a>
+                    </li>
+                    <li role="presentation" class="">
+                        <a href="http://pugo.io"  target="_blank" >Source
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <h3 id="site-title">
+                <a href="/">ant.eoy <sup>Just For Writing</sup></a>
+            </h3>
+        </div>
+    </div>
+</header>
 
-<ol>
-<li>先clone下来
-<code>git clone https://git.coding.net/zhoudafu/gblog.git</code></li>
-<li>增加远程仓库（此步可省略，若添加远层仓库可参考）
-<code>git remote add origin https://git.coding.net/zhoudafu/gblog.git</code></li>
-<li>fetch下分支代码
-<code>git fetch origin coding-pages</code></li>
-<li>使用checkout切换分支
-<code>git checkout -b coding-pages origin/coding-pages</code><br />
-<code>分支 gh-pages 设置为跟踪来自 origin 的远程分支 coding-pages。切换到一个新分支 'coding-pages'</code>
-注：创建分支： git branch mybranch
-        切换分支： git checkout mybranch
-        创建并切换分支： git checkout -b mybranch</li>
-<li>使用git status,add,commit,push origin gh-pages正常提交</li>
-</ol>
-
-<h3 id="本地创建分支并提交到远程分支">本地创建分支并提交到远程分支</h3>
-
-<ol>
-<li>从已有的分支创建新的分支(如从master分支),创建一个gh-pages分支，执行完成自动切换到gh-pages分支，可使用git branch查看和切换
-<code>git checkout -b coding-pages</code></li>
-
-<li><p>提交到远程仓库
-<code>git push origin coding-pages</code></p>
-
-<h3 id="后记">后记</h3>
-
-<p><em>在我使用pugo push时 ，使用本地新建分支再提交到远程</em>
-<code>EROR|12-27 20:52:07.7178|Git|Fail|warning: push.default 尚未设置，它的默认值在 Git 2.0 已从 'matching'
-变更为 'simple'。若要不再显示本信息并保持传统习惯，进行如下设置：
-git config --global push.default matching
-若要不再显示本信息并从现在开始采用新的使用习惯，设置：
-git config --global push.default simple
-当 push.default 设置为 'matching' 后，git 将推送和远程同名的所有
-本地分支。
-从 Git 2.0 开始，Git 默认采用更为保守的 'simple' 模式，只推送当前
-分支到远程关联的同名分支，即 'git push' 推送当前分支。
-参见 'git help config' 并查找 'push.default' 以获取更多信息。
-（'simple' 模式由 Git 1.7.11 版本引入。如果您有时要使用老版本的 Git，
-为保持兼容，请用 'current' 代替 'simple'）
-fatal: 当前分支 coding-pages 没有对应的上游分支。
-为推送当前分支并建立与远程上游的跟踪，使用
-git push --set-upstream origin coding-pages
-``
-*后在gitPro目录下使用*
-</code> git push --set-upstream origin coding-pages```
-回执</p>
-<pre><code>Delta compression using up to 4 threads.压缩对象中: 100% (23/23), 完成.写入对象中: 100% (29/29), 343.86KiB | 0 bytes/s, 完成.Total 29 (delta 5), reused 0 (delta 0)To https://git.coding.net/zhoudafu/gblog.git 6363c13..5f88c38  coding-pages -&gt; coding-pages
-分支 coding-pages 设置为跟踪来自 origin 的远程分支 coding-pages
-</code></pre>
-
-<p>重新执行未果报错</p>
-<pre><code>EROR|12-27 20:57:08.0745|Git|Fail|exit status 1
-</code></pre>
-
-<p>在这里应该是pugo内部调用处理有差异，使用第一种分支操作即可成功提交。</p></li>
-</ol>
-</div>
-                <div class="more">
-                    <a href="/2016/12/27/git-branch.html" class="btn pure-button pure-button-primary">Read More..</a>
-                </div>
-            </div>
-            
-            <div class="post">
-                <h3 class="post-header"><a href="/2016/3/25/welcome.html">Welcome</a></h3>
-                <div class="post-meta">
-                    <small>2016-3-25</small>
-                </div>
-                <div class="post-description"><p>When you read the post, <code>PuGo</code> is running successfully.</p>
+<section id="main">
+    <div class="container">
+        <div id="article-list">
+            <article class="article">
+                <div class="row">
+                    <div class="col-md-10 col-md-offset-1 panel panel-default">
+                        <header class="header">
+                            <div class="meta">
+                        <span class="date">
+                            <span class="month">3</span>
+                            <span class="day">25</span>
+                        </span>
+                            </div>
+                            <h3 class="title">
+                                <a href="/2016/3/25/welcome.html">Welcome</a>
+                            </h3>
+                        </header>
+                        <section class="brief"><p>When you read the post, <code>PuGo</code> is running successfully.</p>
 
 <p>This post is generated from file <code>source/welcome.md</code>. You can learn it and try to write your own article with following guide.</p>
 
@@ -167,37 +105,42 @@ Markdown is often used to format readme files, for writing messages in online di
 and to create rich text using a plain text editor.
 
 </code></pre>
-</div>
-                <div class="more">
-                    <a href="/2016/3/25/welcome.html" class="btn pure-button pure-button-primary">Read More..</a>
+</section>
+                        <aside class="aside clearfix">
+                            <a class="btn btn-primary btn-lg pull-right" href="/2016/3/25/welcome.html">Read More</a>
+                        </aside>
+                    </div>
                 </div>
-            </div>
+            </article>
             
-        </div>
-        <div class="pagination pure-g">
-            <ul>
+            <div class="article-pager text-center">
                 
                 
-            </ul>
+            </div>
         </div>
-        <div class="footer">
-    <p>&copy; ant.eoy 2015
-        powered by <a href="http://github.com/go-xiaohei/pugo">PuGo</a> with <a href="http://purecss.io" target="_blank">Pure</a>
-    </p>
-    
+    </div>
+</section>
+<footer id="footer">
+    <div class="container text-center">
+        <p>© 2015 ant.eoy.
+            <a href="http://creativecommons.org/licenses/by/3.0/">Some rights reserved </a> |
+            <a href="/feed.xml">Feed</a> |
+            <a href="/sitemap.xml">Sitemap</a>
+        </p>
+        <p>Powered by <a href="https://github.com/go-xiaohei/pugo">PuGo 0.10.5 (beta)</a>. Theme by Default.
+        </p>
+        
     
     
 
-</div>
     </div>
-</div>
+</footer>
 <script src="/js/jquery-2.1.4.min.js"></script>
-<script src="/js/highlight.pack.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/prism.min.js"></script>
 <script>
-    $(document).ready(function() {
-        $('pre code').each(function(i, block) {
-            hljs.highlightBlock(block);
-        });
+    $(document).ready(function () {
+        $("pre code").addClass("line-numbers")
     });
 </script>
 </body>
